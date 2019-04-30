@@ -4,7 +4,11 @@
     <form>
         <div class="alert alert-warning row" role="alert">
             <div class="col-11">
-                <input type="search" name="search" class="form-control">
+                {% if text %}
+                    <input type="search" name="search" class="form-control" value="{{ text }}">
+                {% else %}
+                    <input type="search" name="search" class="form-control">
+                {% endif %}
             </div>
             <div class="col-1">
                 <button type="submit" class="btn btn-warning">Поиск</button>
@@ -14,7 +18,7 @@
     {% if data %}
         {% for item in data %}
             <div class="alert alert-dark" role="alert">
-                <h1>{{ item["title"] }}</h1>
+                <h3>{{ item["title"] }}</h3>
                 <p>{{ item["description"] }}</p>
                 <a href="{{ item['link'] }}">Смотреть в Википедии</a>
             </div>

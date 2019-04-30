@@ -4,13 +4,46 @@
     <form>
         <div class="alert alert-warning row" role="alert">
             <div class="col-11">
-                <input type="search" name="search" class="form-control">
+                {% if text %}
+                    <input type="search" name="search" class="form-control" value="{{ text }}">
+                {% else %}
+                    <input type="search" name="search" class="form-control">
+                {% endif %}
             </div>
             <div class="col-1">
                 <button type="submit" class="btn btn-warning">Поиск</button>
             </div>
         </div>
     </form>
+    <div class="btn-group dropright">
+        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Настройки
+        </button>
+        <div class="dropdown-menu">
+            <form method="post">
+                Тип карты:
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="map_type" id="map_radio" value="map" checked>
+                    <label class="form-check-label" for="map_radio">Схема</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="map_type" id="sat_radio" value="sat">
+                    <label class="form-check-label" for="sat_radio">Спутник</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="map_type" id="sat,skl_radio" value="sat,skl">
+                    <label class="form-check-label" for="sat,skl_radio">Спутник с названиями</label>
+                </div>
+                <hr>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="trf" value="trf" id="trf_checkbox">
+                    <label class="form-check-label" for="trf_checkbox">Отображать пробки</label>
+                </div>
+                <button class="btn btn-warning" type="submit">Применить настройки</button>
+            </form>
+        </div>
+    </div>
+    <hr>
     {% if address or code %}
         <div class="alert alert-dark" role="alert">
             {% if address %}
