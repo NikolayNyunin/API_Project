@@ -15,12 +15,29 @@
                     <a class="nav-link text-dark" href="/map_search">Поиск на карте</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-dark" href="/organization_search">Поиск по организациям</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-dark" href="/wiki_search">Поиск в Википедии</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main role="main" class="container">
+        <form>
+            <div class="alert alert-warning row" role="alert">
+                <div class="col-11">
+                    {% if text %}
+                        <input type="search" name="search" class="form-control" value="{{ text }}">
+                    {% else %}
+                        <input type="search" name="search" class="form-control">
+                    {% endif %}
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-warning">Поиск</button>
+                </div>
+            </div>
+        </form>
         {% block content %}{% endblock %}
     </main>
     <footer class="page-footer fixed-bottom bg-warning">

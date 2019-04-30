@@ -1,7 +1,7 @@
 import requests
 
 
-def search(text):
+def search_wiki(text):
     wiki_api_server = 'https://ru.wikipedia.org/w/api.php'
     wiki_params = {
         'action': 'opensearch',

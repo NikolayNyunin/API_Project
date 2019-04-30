@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class="alert alert-success">
+        Справка: Необходимый поисковый запрос для поиска по огранизациям - <strong>*Адрес, рядом с которым проводится поиск* + *Тип искомой организации*</strong>
+    </div>
     <div class="btn-group dropright">
         <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Настройки
@@ -30,16 +33,6 @@
         </div>
     </div>
     <hr>
-    {% if address or code %}
-        <div class="alert alert-dark" role="alert">
-            {% if address %}
-                Полный адрес: {{ address }}<br>
-            {% endif %}
-            {% if code %}
-                Почтовый индекс: {{ code }}
-            {% endif %}
-        </div>
-    {% endif %}
     {% if image %}
         <img src="{{ image }}" alt="Здесь должна была быть карта, но что-то пошло не так" class="img-fluid">
     {% endif %}
