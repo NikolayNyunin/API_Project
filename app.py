@@ -49,7 +49,7 @@ def wiki_search():
                                    data=data, text=text)
         except Exception as e:
             return render_template('wiki_search.html', title='Поиск в Википедии',
-                                   error='Ошибка: '.format(e), text=text)
+                                   error='Ошибка: {}'.format(e), text=text)
     else:
         return render_template('wiki_search.html', title='Поиск в Википедии')
 
@@ -81,7 +81,7 @@ def org_search():
                                    text=text, image=url)
         except Exception as e:
             return render_template('organization_search.html', title='Поиск по организациям',
-                                   error='Ошибка: '.format(e), text=text)
+                                   error='Ошибка: {}'.format(e), text=text)
     else:
         return render_template('organization_search.html', title='Поиск по организациям')
 
